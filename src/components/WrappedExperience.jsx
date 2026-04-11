@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { SlideNewIntro, SlideStory1, SlideStory2 } from './slides/BasicSlides';
-import { SlideMinutes, SlideTopGenres } from './slides/DataSlides';
+
+// Importlar artık tek tek ve doğru dosya yollarından yapılıyor
+import { SlideNewIntro } from './slides/SlideNewIntro';
+import { SlideStory1 } from './slides/SlideStory1';
+import { SlideStory2 } from './slides/SlideStory2';
+import { SlideMinutes } from './slides/SlideMinutes';
+import { SlideTopGenres } from './slides/SlideTopGenres';
+
 import { WRAPPED_DATA, AUDIO_TRACKS } from '../data/config';
 
 export const WrappedExperience = () => {

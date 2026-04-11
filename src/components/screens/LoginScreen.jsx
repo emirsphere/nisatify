@@ -3,7 +3,6 @@ import { CONFIG } from '../../data/config';
 
 export const LoginScreen = ({ onLogin }) => {
   const [password, setPassword] = useState('');
-  const [attempts, setAttempts] = useState(0);
   const [isShaking, setIsShaking] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -14,7 +13,7 @@ export const LoginScreen = ({ onLogin }) => {
     if (currentInput === CONFIG.CORRECT_PASSWORD) {
       onLogin();
     } else {
-      setAttempts((prev) => prev + 1);
+        
       
       const matchedGroup = CONFIG.SPECIFIC_ERRORS.find(group => 
         group.keywords.includes(currentInput)

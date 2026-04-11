@@ -1,16 +1,15 @@
 export const CONFIG = {
   CORRECT_PASSWORD: "emir",
   SPECIFIC_ERRORS: [
-    { keywords: ["neslihan", "nesli"], messages: ["?", "yarma", "Neslihan mı? Gerçekten mi?"] },
-    { keywords: ["buğra", "bugra", "iğrençra"], messages: ["iğrençra demek istedin galiba?", "puhauah", "Onu hiç karıştırma şimdi."] }
+    { keywords: ["neslihan", "nesli"], messages: ["?", "yarma","K.E.S.A.Q."] },
+    { keywords: ["buğra", "bugra", "iğrençra"], messages: ["iğrençra demek istedin galiba?", "puhauah", ""] }
   ],
   GENERIC_ERRORS: [
-    "ÜFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+    "ÜFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
     "o kim aq ya bağartma",
     "tamam bırak makarayı yaz düzgünce",
-    "Ayıp... Neyse, Emir yaz da geçelim artık şu aşamayı, sinirim bozuldu.",
-    "Emin misin? Klavyen falan sürçtü herhalde. Bir daha dene.",
-    "Şaka yapıyorsun değil mi? Bu kadar çabuk satılacağımı düşünmemiştim."
+    "K.E.S.A.Q.",
+    "üzme"
   ]
 };
 
@@ -24,11 +23,12 @@ export const AUDIO_TRACKS = [
 ];
 
 export const WRAPPED_DATA = {
-  minutesListened: 94608,
+  minutesListened: 119608,
   topGenres: [
-    { name: "Saf Gıybet", percentage: 45, color: "bg-pink-500" },
-    { name: "Varoluşsal Kriz", percentage: 25, color: "bg-purple-500" },
-    { name: "Anlamsız Reels", percentage: 20, color: "bg-blue-500" },
-    { name: "İptal Edilen Planlar", percentage: 10, color: "bg-yellow-500" }
+   { name: "Makara", percentage: 34, color: "bg-pink-500" },
+    { name: "Ağır Boş Yapma", percentage: 23, color: "bg-purple-500" },
+    { name: "Reels & Twitter", percentage: 22, color: "bg-blue-500" },
+    { name: "Derin Sohbet", percentage: 10, color: "bg-yellow-500" },
+    { name: "Dertleşme", percentage: 11, color: "bg-red-500" }
   ]
 };
