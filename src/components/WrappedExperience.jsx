@@ -6,8 +6,14 @@ import { SlideStory1 } from './slides/SlideStory1';
 import { SlideStory2 } from './slides/SlideStory2';
 import { SlideMinutes } from './slides/SlideMinutes';
 import { SlideTopGenres } from './slides/SlideTopGenres';
+import { SlideCatchphrase } from './slides/SlideCatchphrase';
+import { SlideBestJokes } from './slides/SlideBestJokes';
+import { SlideTopTopics } from './slides/SlideTopTopics';
+import { SlideDiscoveries } from './slides/SlideDiscoveries';
+import { SlideFeltAge } from './slides/SlideFeltAge';
 
 import { WRAPPED_DATA, AUDIO_TRACKS } from '../data/config';
+import { SlideChapterStart } from './slides/SlideChapterStart';
 
 export const WrappedExperience = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,10 +22,16 @@ export const WrappedExperience = () => {
   
   const slides = [
     <SlideNewIntro key="intro" />,
+    <SlideChapterStart key="chapter" />,
     <SlideStory1 key="story1" />,
     <SlideStory2 key="story2" />,
     <SlideMinutes key="minutes" minutes={WRAPPED_DATA.minutesListened} />,
-    <SlideTopGenres key="genres" genres={WRAPPED_DATA.topGenres} />
+    <SlideTopGenres key="genres" genres={WRAPPED_DATA.topGenres} />,
+    <SlideCatchphrase key="catchphrase" phrases={WRAPPED_DATA.topPhrases} />,
+    <SlideBestJokes key="jokes" jokes={WRAPPED_DATA.bestJokes} />,
+    <SlideTopTopics key="topics" topics={WRAPPED_DATA.topTopics} />,
+    <SlideDiscoveries key="discoveries" discoveries={WRAPPED_DATA.discoveries} />,
+    <SlideFeltAge key="feltAge" />
   ];
 
   useEffect(() => {
