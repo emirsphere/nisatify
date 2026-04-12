@@ -6,14 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      // Arka plan animasyonu için gerekli keyframe
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' }, // Yüzde 50 kaydırıyoruz ki sonsuz döngü kesintisiz olsun
+          '100%': { transform: 'translateX(-50%)' }
         }
-      },
-      animation: {
-        marquee: 'marquee 20s linear infinite',
       }
     },
   },
