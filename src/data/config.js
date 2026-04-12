@@ -25,12 +25,13 @@ export const AUDIO_TRACKS = [
 export const WRAPPED_DATA = {
   minutesListened: 119608,
   topPhrases: [
-    { text: "BABA", count: 3316 },
-    { text: "kes", count: 2864 },
-    { text: "bak bak", count: 720 },
-    {text: "puahaha", count: 289 },
-    { text: "insta sildim", count: 211 }
+    { text: "BABA", count: 3316},
+    { text: "kes", count: 2864},
+    { text: "bak bak", count: 720},
+    { text: "puahaha", count: 289},
+    { text: "insta sildim", count: 211}
   ],
+  
   topGenres: [
    { name: "Makara", percentage: 34, color: "bg-pink-500" },
     { name: "Ağır Boş Yapma", percentage: 23, color: "bg-purple-500" },

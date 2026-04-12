@@ -6,7 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      // Daha sonra kendi özel renklerimizi veya animasyonlarımızı buraya ekleyebiliriz
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' }, // Yüzde 50 kaydırıyoruz ki sonsuz döngü kesintisiz olsun
+        }
+      },
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+      }
     },
   },
   plugins: [],

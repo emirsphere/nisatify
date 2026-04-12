@@ -27,7 +27,7 @@ export const WrappedExperience = () => {
     <SlideStory2 key="story2" />,
     <SlideMinutes key="minutes" minutes={WRAPPED_DATA.minutesListened} />,
     <SlideTopGenres key="genres" genres={WRAPPED_DATA.topGenres} />,
-    <SlideCatchphrase key="catchphrase" phrases={WRAPPED_DATA.topPhrases} />,
+    <SlideCatchphrase key="catchphrase" data={WRAPPED_DATA.topPhrases} />,
     <SlideBestJokes key="jokes" jokes={WRAPPED_DATA.bestJokes} />,
     <SlideTopTopics key="topics" topics={WRAPPED_DATA.topTopics} />,
     <SlideDiscoveries key="discoveries" discoveries={WRAPPED_DATA.discoveries} />,
