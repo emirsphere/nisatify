@@ -196,7 +196,7 @@ virtualParty: {
 },
 slideMusic: {
     newIntro: "/audio/beatit.MP3",
-    chapter: "/audio/chapter.mp3",
+    chapter: "/audio/borderline.MP3",
     story1: "/audio/story1.mp3",
     story2: "/audio/story2.mp3",
     minutes: "/audio/minutes.mp3",
