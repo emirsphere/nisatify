@@ -64,7 +64,7 @@ export const SlideNewIntro = () => (
           className="mb-3 text-[10px] font-black uppercase tracking-[0.34em] text-pink-100/55"
           style={{ animation: 'textReveal 900ms ease-out both' }}
         >
-          Access Granted
+          HOŞ GELDİN
         </p>
 
         <h1

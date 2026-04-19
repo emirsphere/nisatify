@@ -242,7 +242,7 @@ export const SlideBirthdayWish = ({
           }}
         >
           <p className="text-[10px] uppercase tracking-[0.34em] font-black text-yellow-100/65 mb-3">
-            YENİ YAŞ AÇILDI
+            DOĞUM GÜNÜN KUTLU OLSUN
           </p>
 
           <h2 className="text-[2.45rem] leading-[1.08] py-1 font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-100 via-yellow-100 to-cyan-100 max-w-[330px] mx-auto">

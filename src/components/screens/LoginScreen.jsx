@@ -114,7 +114,7 @@ export const LoginScreen = ({ onLogin }) => {
           {/* Text */}
           <div className="text-center">
             <p className="mb-3 text-[10px] font-black uppercase tracking-[0.34em] text-purple-200/55">
-              Private Wrapped Access
+              ÖZEL NISATIFY WRAPPED ERİŞİMİ
             </p>
 
             <h1 className="text-[2.9rem] font-black leading-[0.95] tracking-[-0.04em] text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-100 to-pink-100">

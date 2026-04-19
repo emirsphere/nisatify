@@ -62,7 +62,7 @@ export const WRAPPED_DATA = {
   moodProfile: [
     {
       name: "Cutie Atom Bomb",
-      percentage: 34,
+      percentage: 36,
       color: "from-pink-500 to-rose-400",
       note: "Tatlı bir atom bombasısın. Her an patlamaya hazır büyük bir enerji ve sinir var içinde, ama dışarıya genelde sevimli ve hafif bir aura yayıyorsun."
     },
@@ -74,7 +74,7 @@ export const WRAPPED_DATA = {
     },
     {
       name: "Ağlamasyonel",
-      percentage: 18,
+      percentage: 16,
       color: "from-blue-500 to-cyan-400",
       note: ""
     },
