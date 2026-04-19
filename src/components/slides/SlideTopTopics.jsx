@@ -1,92 +1,107 @@
 import React, { useState, useEffect } from 'react';
+import { Flame, Eye } from 'lucide-react';
 
-export const SlideTopTopics = ({ topics }) => {
+export const SlideTopTopics = ({ topics = [] }) => {
   const [phase, setPhase] = useState(0);
 
+  // Veri listesini alıp başrolü ve diğerlerini ayırıyoruz
+  const safeTopics = Array.isArray(topics) ? topics : [];
+  const mainTopic = safeTopics[0] || { name: "...", count: 0 };
+  const others = safeTopics.slice(1, 4);
+
   useEffect(() => {
-    // 0: Gizemli giriş sorusu
-    // 1: Yazı yukarı kayar, ana başlık gelir
-    const t1 = setTimeout(() => setPhase(1), 2200);
-    // 2: Liderlik tablosu (Leaderboard) sırayla ekrana düşer
-    const t2 = setTimeout(() => setPhase(2), 3500);
+    // Kademeli merak uyandırma geçişleri
+    const t1 = setTimeout(() => setPhase(1), 600);   // Üst başlıklar
+    const t2 = setTimeout(() => setPhase(2), 2200);  // Ana dedikodu konusu
+    const t3 = setTimeout(() => setPhase(3), 4000);  // Diğer çekiştirilenler
     
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   return (
-    <div className="flex flex-col justify-center h-full p-8 bg-[#0a050a] text-white animate-in fade-in duration-700 relative overflow-hidden">
+    <div className="relative h-full w-full bg-[#1A0510] text-white overflow-hidden flex flex-col items-center justify-center px-6">
       
-      {/* DEVASA "20" EFEKTİ (Spotify Yıl Filigranı) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <span className="text-[20rem] sm:text-[30rem] font-black text-white/[0.03] select-none tracking-tighter">
-          20
-        </span>
+      {/* ARKA PLAN EFEKTLERİ: Dedikodu Ateşi (Kırmızı/Mor ışık hüzmeleri) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className={`absolute top-[-10%] right-[-10%] w-72 h-72 bg-rose-600/20 rounded-full blur-[100px] transition-opacity duration-1000 ${phase >= 2 ? 'opacity-100' : 'opacity-0'}`} />
+        <div className={`absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-fuchsia-600/20 rounded-full blur-[120px] transition-opacity duration-1000 ${phase >= 2 ? 'opacity-100' : 'opacity-0'}`} />
       </div>
 
-      {/* GIYBET AURASI (Koyu Mor ve Fuşya tonları) */}
-      <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-purple-800 rounded-full mix-blend-screen filter blur-[150px] opacity-30 animate-pulse z-0"></div>
-      <div className="absolute bottom-0 -left-20 w-96 h-96 bg-fuchsia-700 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse delay-700 z-0"></div>
-
-      {/* Aşama 0 ve 1: Giriş Metni ve Ana Başlık */}
-      <div className={`transition-all duration-1000 ease-in-out absolute w-full left-0 flex flex-col items-center px-6 z-10
-        ${phase === 0 ? 'top-[45%] opacity-100 scale-100' : 'top-[10%] opacity-100 scale-90'}`}>
+      {/* İÇERİK KATMANI */}
+      <div className="relative z-10 w-full max-w-md flex flex-col items-center">
         
-        <p className={`font-bold uppercase tracking-widest text-center transition-colors duration-700
-          ${phase === 0 ? 'text-2xl sm:text-3xl text-white' : 'text-sm sm:text-base text-fuchsia-300/70'}`}>
-          Peki bu yıl en çok kimin kulaklarını çınlattık?
-        </p>
+        {/* ÜST BAŞLIK */}
+        <div className="text-center mb-10">
+          <div className="overflow-hidden">
+            <h3 className={`text-rose-400 font-black uppercase tracking-[0.2em] text-sm mb-2 transition-all duration-700 ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+              Gıybet Dosyası
+            </h3>
+          </div>
+          <div className="overflow-hidden">
+            <h2 className={`text-2xl sm:text-3xl font-bold leading-tight transition-all duration-700 delay-300 ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+              Bu yıl dedikodu kazanını<br/>en çok kimler için kaynattık?
+            </h2>
+          </div>
+        </div>
 
-        <h2 className={`text-5xl sm:text-5xl font-black mt-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-purple-400 to-fuchsia-300 drop-shadow-[0_0_20px_rgba(192,38,211,0.4)] transition-all duration-700 transform
-          ${phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 hidden'}`}>
-          Top 3 Dedikodu Person
-        </h2>
-      </div>
-
-      {/* Aşama 2: Liderlik Tablosu (Sıralı Animasyon) */}
-      <div className={`w-full mt-36 z-10 transition-all duration-1000 flex flex-col gap-4
-        ${phase >= 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        
-        {topics.map((topic, idx) => {
-          const isFirst = idx === 0;
-          
-          return (
-            <div 
-              key={idx}
-              className={`relative flex items-center justify-between p-5 rounded-2xl border backdrop-blur-md transition-all duration-700 transform
-                ${isFirst 
-                  ? 'bg-gradient-to-r from-purple-900/50 to-fuchsia-900/30 border-fuchsia-500/50 shadow-[0_0_25px_rgba(217,70,239,0.25)] scale-105 my-2' 
-                  : 'bg-white/5 border-white/10 shadow-lg'}`}
-              style={{ 
-                transitionDelay: `${idx * 250}ms`,
-                transform: phase >= 2 ? (isFirst ? 'translateY(0) scale(1.05)' : 'translateY(0) scale(1)') : 'translateY(20px) scale(0.95)',
-                opacity: phase >= 2 ? 1 : 0
-              }}
-            >
-              {/* Birinciye Özel Bir İkon */}
-              {isFirst && (
-                <span className="absolute -top-4 -left-2 text-3xl transform -rotate-12 drop-shadow-lg">👑</span>
-              )}
-              
-              <div className="flex items-center gap-4">
-                <span className={`text-3xl font-black italic 
-                  ${isFirst ? 'text-fuchsia-400' : 'text-white/30'}`}>
-                  #{idx + 1}
-                </span>
-                <span className={`font-bold ${isFirst ? 'text-2xl text-white' : 'text-xl text-white/90'}`}>
-                  {topic.name}
-                </span>
+        {/* ANA KONU (Şampiyon) */}
+        <div className={`w-full mb-8 transition-all duration-1000 ease-out transform ${phase >= 2 ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-10'}`}>
+          <div className="bg-gradient-to-br from-rose-500/20 to-fuchsia-500/10 backdrop-blur-xl border border-rose-500/20 rounded-[2rem] p-8 shadow-[0_0_40px_rgba(225,29,72,0.15)] relative overflow-hidden group">
+            
+            {/* Arka plan dev ikon efekti */}
+            <div className="absolute -right-4 -top-4 opacity-10 text-rose-500 transform group-hover:scale-110 transition-transform duration-500">
+              <Flame size={140} />
+            </div>
+            
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-rose-500/20 rounded-lg text-rose-400 border border-rose-500/30">
+                <Eye size={20} className="animate-pulse" />
               </div>
-              <div className="flex flex-col items-end">
-                <span className={`font-mono font-bold ${isFirst ? 'text-fuchsia-300' : 'text-white/60'}`}>
-                  {topic.count}
-                </span>
-                <span className="text-[10px] uppercase tracking-widest opacity-50">KeZ</span>
+              <span className="text-xs font-black tracking-widest uppercase opacity-80 text-rose-300">Yılın Taşlananı</span>
+            </div>
+
+            <h1 className="text-4xl font-black mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-rose-200 to-rose-400">
+              {mainTopic.name}
+            </h1>
+            <p className="text-rose-200/70 font-medium text-sm mt-3">
+              Tam <span className="text-white font-bold text-lg">{mainTopic.count}</span> kez bu kişinin kritiği yapıldı.
+            </p>
+          </div>
+        </div>
+
+        {/* DİĞER KONULAR (Runner-ups) */}
+        <div className="w-full space-y-3">
+          {others.length > 0 && (
+            <div className={`text-xs uppercase tracking-widest text-fuchsia-400/80 font-bold mb-2 ml-2 transition-opacity duration-700 delay-700 ${phase >= 3 ? 'opacity-100' : 'opacity-0'}`}>
+              Diğer Taşlananlar
+            </div>
+          )}
+          
+          {others.map((topic, index) => (
+            <div 
+              key={index} 
+              className={`flex items-center justify-between bg-white/5 hover:bg-rose-500/10 backdrop-blur-md border border-white/5 rounded-2xl px-6 py-4 transition-all duration-700 transform
+                ${phase >= 3 ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`}
+              style={{ transitionDelay: `${(index + 1) * 200}ms` }}
+            >
+              <div className="flex items-center gap-4">
+                <span className="text-rose-500/40 font-black italic text-lg">#{index + 2}</span>
+                <span className="font-bold text-lg text-white/90">{topic.name}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-rose-300/70 tracking-tighter">{topic.count} kez</span>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
 
       </div>
+
+      {/* ALT NOT */}
+      <div className={`absolute bottom-8 text-rose-500/30 text-[10px] font-black uppercase tracking-[0.4em] transition-opacity duration-1000 ${phase >= 3 ? 'opacity-100' : 'opacity-0'}`}>
+        Nisatify
+      </div>
+
     </div>
   );
 };

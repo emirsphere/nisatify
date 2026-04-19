@@ -15,12 +15,7 @@ export const SlideDiscoveries = ({ discoveries }) => {
   return (
     <div className="flex flex-col justify-center h-full p-8 bg-[#020617] text-white animate-in fade-in duration-700 relative overflow-hidden">
       
-      {/* DEVASA "20" FİLİGRANI (Spotify Yıl Efekti) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        <span className="text-[20rem] sm:text-[30rem] font-black text-white/[0.03] select-none tracking-tighter">
-          20
-        </span>
-      </div>
+      
 
       {/* DISCOVER WEEKLY AURASI (Gece Mavisi, Camgöbeği ve Zümrüt Yeşili) */}
       <div className="absolute -top-20 left-0 w-[400px] h-[400px] bg-cyan-900/40 rounded-full mix-blend-screen filter blur-[120px] animate-pulse z-0"></div>
@@ -37,7 +32,7 @@ export const SlideDiscoveries = ({ discoveries }) => {
 
         <h2 className={`text-4xl sm:text-5xl font-black mt-3 text-center text-transparent bg-clip-text bg-gradient-to-br from-cyan-300 to-emerald-400 drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] transition-all duration-700 transform
           ${phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 hidden'}`}>
-          Discover Weekly
+          Discover Annual
         </h2>
       </div>
 

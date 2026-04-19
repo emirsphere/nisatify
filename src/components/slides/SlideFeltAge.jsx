@@ -6,9 +6,9 @@ export const SlideFeltAge = ({
   // Eğer WrappedExperience bu prop'u geçmeyi unutursa (ki unutulmuş), 
   // uygulama çökmez, bu fallback (varsayılan) veriyi kullanır.
   feltAge = { 
-    age: 78, 
-    status: "Emekli Albay", 
-    description: "Sabah 6'da kalkıp dert yanmalar, bitmek bilmeyen tripler ve hayat yorgunluğu..." 
+    age: 58, 
+    status: "Yorucu Kraliçe", 
+    description: "Bu yıl benle geçirdiğin zamanlar epey yorucuydun. Bunu hak ettin." 
   } 
 }) => {
   const [phase, setPhase] = useState(0);
@@ -51,14 +51,14 @@ export const SlideFeltAge = ({
         <div className="overflow-hidden">
           <p className={`text-xl sm:text-2xl font-bold text-white/70 transition-all duration-700 ease-out transform
             ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-            Takvime göre bu yıl 20 oldun...
+            Takvime göre bugün 21 oldun...
           </p>
         </div>
 
         <div className="overflow-hidden">
           <p className={`text-2xl sm:text-3xl font-black text-white drop-shadow-md transition-all duration-700 ease-out transform delay-300
             ${phase >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-            Ama o bitmek bilmeyen dramalarınla bize hissettirdiğin yaş:
+            Ama bize hissettirdiğin yaş:
           </p>
         </div>
       </div>
