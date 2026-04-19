@@ -34,7 +34,7 @@ export const SlideTopTopics = ({ topics = [] }) => {
         <div className="text-center mb-10">
           <div className="overflow-hidden">
             <h3 className={`text-rose-400 font-black uppercase tracking-[0.2em] text-sm mb-2 transition-all duration-700 ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-              Gıybet Dosyası
+              Dedikodu Köşesi
             </h3>
           </div>
           <div className="overflow-hidden">

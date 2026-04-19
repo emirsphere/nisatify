@@ -43,6 +43,10 @@ export const SlideBirthdayMode = () => {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
           }
+            @keyframes birthdayBeam {
+  0%, 100% { opacity: .55; transform: translate(-50%, -50%) rotate(-18deg) scale(1); }
+  50% { opacity: .9; transform: translate(-50%, -50%) rotate(12deg) scale(1.06); }
+}
 
           @keyframes confettiPop {
             0% { transform: translateY(24px) scale(.4) rotate(var(--r)); opacity: 0; }
@@ -73,25 +77,49 @@ export const SlideBirthdayMode = () => {
       </style>
 
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,20,147,0.13),transparent_32%),linear-gradient(180deg,#18051b_0%,#070312_48%,#040208_100%)]" />
+      {/* Background */}
+<div className="absolute inset-0">
+  <div className="absolute inset-0 bg-[linear-gradient(180deg,#030712_0%,#111827_46%,#020617_100%)]" />
 
-        <div className="absolute -top-28 -left-24 h-96 w-96 rounded-full bg-pink-500/22 blur-[130px]" />
-        <div className="absolute top-[20%] -right-28 h-96 w-96 rounded-full bg-cyan-400/17 blur-[130px]" />
-        <div className="absolute bottom-[-18%] left-[12%] h-96 w-96 rounded-full bg-yellow-300/14 blur-[130px]" />
+  {/* cyber gradient glow */}
+  <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-cyan-400/12 blur-[130px]" />
+  <div className="absolute bottom-[-22%] left-[-25%] h-[420px] w-[420px] rounded-full bg-fuchsia-500/14 blur-[130px]" />
+  <div className="absolute bottom-[-18%] right-[-28%] h-[420px] w-[420px] rounded-full bg-blue-500/12 blur-[130px]" />
 
-        <div
-          className={`absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-[1400ms] ${
-            phase >= 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-          }`}
-          style={{
-            background:
-              'conic-gradient(from 120deg, rgba(255,20,147,0.22), rgba(34,211,238,0.20), rgba(253,224,71,0.20), rgba(255,20,147,0.22))',
-            filter: 'blur(24px)',
-            animation: phase >= 4 ? 'birthdaySpin 8s linear infinite' : 'none'
-          }}
-        />
-      </div>
+  {/* diagonal neon beams */}
+  <div className="absolute -left-28 top-[18%] h-[520px] w-[120px] rotate-[26deg] bg-gradient-to-b from-cyan-300/20 via-cyan-400/7 to-transparent blur-2xl" />
+  <div className="absolute -right-24 top-[14%] h-[560px] w-[120px] rotate-[-24deg] bg-gradient-to-b from-fuchsia-300/20 via-pink-400/7 to-transparent blur-2xl" />
+
+  {/* subtle grid bottom */}
+  <div
+    className="absolute inset-x-0 bottom-0 h-[42%] opacity-35"
+    style={{
+      backgroundImage:
+        'linear-gradient(rgba(34,211,238,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(236,72,153,.14) 1px, transparent 1px)',
+      backgroundSize: '38px 38px',
+      maskImage: 'linear-gradient(to top, black 0%, transparent 88%)'
+    }}
+  />
+
+  {/* big faint system text */}
+  
+
+  {/* ON glow after toggle */}
+  <div
+  className={`absolute left-1/2 top-[54%] h-[520px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-[999px] transition-all duration-[1400ms] ${
+    phase >= 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+  }`}
+  style={{
+    
+    background:
+      'linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(236,72,153,0.22) 32%, rgba(168,85,247,0.18) 58%, rgba(34,211,238,0.14) 100%)',
+    filter: 'blur(34px)',
+    transform: 'translate(-50%, -50%) rotate(-18deg)',
+    animation: phase >= 4 ? 'birthdayBeam 5s ease-in-out infinite' : 'none'
+    
+  }}
+/>
+</div>
 
       {/* Confetti only after ON */}
       {confetti.map((item, index) => (

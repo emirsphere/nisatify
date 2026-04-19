@@ -59,6 +59,10 @@ export const SlideBirthdayWish = ({
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
           }
+            @keyframes balloonFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+  50% { transform: translateY(-16px) rotate(calc(var(--rot) + 4deg)); }
+}
 
           @keyframes burstRing {
             0% { transform: scale(.35); opacity: 0; }
@@ -115,6 +119,37 @@ export const SlideBirthdayWish = ({
           }}
         />
       </div>
+      {/* Balloons */}
+{[
+  { top: '15%', left: '7%', color: 'from-pink-300 to-fuchsia-400', size: 'h-16 w-12', rot: '-10deg', delay: '0ms' },
+  { top: '20%', right: '8%', color: 'from-cyan-200 to-blue-400', size: 'h-14 w-11', rot: '9deg', delay: '300ms' },
+  { top: '62%', left: '8%', color: 'from-yellow-200 to-orange-300', size: 'h-13 w-10', rot: '7deg', delay: '600ms' },
+  { top: '66%', right: '10%', color: 'from-pink-200 to-rose-400', size: 'h-15 w-11', rot: '-8deg', delay: '900ms' }
+].map((balloon, index) => (
+  <div
+    key={index}
+    className={`absolute z-20 transition-all duration-1000 ${
+      phase >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+    }`}
+    style={{
+      top: balloon.top,
+      left: balloon.left,
+      right: balloon.right,
+      '--rot': balloon.rot,
+      animation: phase >= 3 ? 'balloonFloat 4.2s ease-in-out infinite' : 'none',
+      animationDelay: balloon.delay
+    }}
+  >
+    <div
+      className={`${balloon.size} rounded-[999px_999px_850px_850px] bg-gradient-to-br ${balloon.color} shadow-[0_0_24px_rgba(255,255,255,0.18)] relative`}
+    >
+      <div className="absolute left-3 top-3 h-4 w-2 rounded-full bg-white/45 blur-[1px]" />
+      <div className="absolute left-1/2 bottom-[-5px] h-3 w-3 -translate-x-1/2 rotate-45 bg-current opacity-80" />
+    </div>
+
+    <div className="mx-auto mt-1 h-14 w-[1px] bg-white/20" />
+  </div>
+))}
 
       {/* Big clear age */}
       <div
@@ -207,7 +242,7 @@ export const SlideBirthdayWish = ({
           }}
         >
           <p className="text-[10px] uppercase tracking-[0.34em] font-black text-yellow-100/65 mb-3">
-            level unlocked
+            YENİ YAŞ AÇILDI
           </p>
 
           <h2 className="text-[2.45rem] leading-[1.08] py-1 font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-100 via-yellow-100 to-cyan-100 max-w-[330px] mx-auto">

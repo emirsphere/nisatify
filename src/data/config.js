@@ -51,7 +51,7 @@ export const WRAPPED_DATA = {
   ],
   topTopics: [
     { name: "İsmet Taşdemir", count: 356 },
-    { name: "Caan", count: 175 },
+    { name: "Can", count: 175 },
     { name: "Boğaz Ağrısı", count: 46 }
   ],
   discoveries: [
@@ -95,7 +95,7 @@ export const WRAPPED_DATA = {
     label: "Bu Yılki Aura Rengin",
     colorName: "Hot Pink",
     description:
-      "Tatlı görünüyorsun ama içinde aşırı canlı, komik ve biraz da olay çıkaran bir enerji dolaşıyor."
+      "Tatlı, enerjik, eğlenceli. Yani pembe."
   },
   podcastTopics: [
     { name: "Hukuk Dersi Konuları", count: 259 },
@@ -195,27 +195,27 @@ virtualParty: {
   ]
 },
 slideMusic: {
-    newIntro: "/audio/beatit.MP3",
-    chapter: "/audio/borderline.MP3",
-    story1: "/audio/story1.mp3",
-    story2: "/audio/story2.mp3",
-    minutes: "/audio/minutes.mp3",
-    conversationTypes: "/audio/conversation-types.mp3",
-    moodSwings: "/audio/mood.mp3",
-    aura: "/audio/aura.mp3",
-    catchphrase: "/audio/catchphrase.mp3",
-    bestJokes: "/audio/jokes.mp3",
-    topTopics: "/audio/top-topics.mp3",
-    discoveries: "/audio/discoveries.mp3",
-    feltAge: "/audio/felt-age.mp3",
-    podcast: "/audio/podcast.mp3",
-    peakMoment: "/audio/peak-moment.mp3",
-    bestMadeStickers: "/audio/stickers.mp3",
-    persona: "/audio/persona.mp3",
-    softEnding: "/audio/soft-ending.mp3",
-    birthdayMode: "/audio/birthday-mode.mp3",
-    birthdayWish: "/audio/birthday-wish.mp3",
-    gladYouExist: "/audio/glad-you-exist.mp3",
-    virtualParty: "/audio/party.mp3"
+    newIntro: "/audio/smoothp1.mp3",
+    chapter: "/audio/borderline.mp3",
+    story1: "/audio/dirty.mp3",
+    story2: "/audio/dointime.mp3",
+    minutes: "/audio/smoothp2.mp3",
+    conversationTypes: "/audio/dracula.mp3",
+    moodSwings: "/audio/newperson.mp3",
+    aura: "/audio/beatit.mp3",
+    catchphrase: "/audio/loser.mp3",
+    bestJokes: "/audio/shesout.mp3",
+    topTopics: "/audio/bad.mp3",
+    discoveries: "/audio/theway.mp3",
+    feltAge: "/audio/thriller.mp3",
+    podcast: "/audio/cinnamon.mp3",
+    peakMoment: "/audio/rememberthe.mp3",
+    bestMadeStickers: "/audio/diet.mp3",
+    persona: "/audio/fly.mp3",
+    softEnding: "/audio/maninthe.mp3",
+    birthdayMode: "/audio/amator.mp3",
+    birthdayWish: "/audio/letithappen.mp3",
+    gladYouExist: "/audio/fly.mp3",
+    virtualParty: "/audio/billiejean.mp3"
   }
 };

@@ -59,7 +59,7 @@ export const SlideCatchphrase = ({ phrases = [] }) => {
           <div className="overflow-hidden mt-2">
             <p className={`text-2xl sm:text-3xl font-bold text-white transition-all duration-700 delay-300 transform
               ${phase >= 2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-              Bu kelimeyi <span className="text-green-400">Loop'a</span> aldın:
+              Bu kelimeyi <span className="text-green-400">ağzından</span> düşürmedin:
             </p>
           </div>
         </div>

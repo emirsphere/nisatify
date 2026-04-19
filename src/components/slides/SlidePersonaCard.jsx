@@ -88,7 +88,7 @@ export const SlidePersonaCard = ({
         }`}
       >
         <p className="text-cyan-300 font-black uppercase tracking-[0.24em] text-[10px] mb-2">
-          Final Analysis
+          PERSONA CARD
         </p>
 
         <h2 className="text-[2rem] leading-[0.92] font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-yellow-100">
