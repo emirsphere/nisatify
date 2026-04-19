@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 export const AudioController = ({
   src,
   enabled,
+  muted = false,
   volume = 0.38,
   loop = true,
   fadeMs = 450
@@ -15,6 +16,7 @@ export const AudioController = ({
     const audio = audioRef.current;
 
     if (!audio) return;
+    audio.muted = muted;
 
     if (fadeIntervalRef.current) {
       clearInterval(fadeIntervalRef.current);
@@ -97,7 +99,7 @@ export const AudioController = ({
         fadeIntervalRef.current = null;
       }
     };
-  }, [src, enabled, volume, loop, fadeMs]);
+  }, [src, enabled, muted, volume, loop, fadeMs]);
 
   return <audio ref={audioRef} preload="auto" />;
 };

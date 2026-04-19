@@ -28,9 +28,8 @@ import { WRAPPED_DATA, CONFIG } from '../data/config';
 
 export const WrappedExperience = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [musicEnabled, setMusicEnabled] = useState(false);
-  const [muted, setMuted] = useState(false);
-
+  const [musicEnabled, setMusicEnabled] = useState(true);
+const [muted, setMuted] = useState(false);
   const slides = [
     {
       key: 'intro',
@@ -151,7 +150,8 @@ export const WrappedExperience = () => {
   ];
 
   const currentSlideData = slides[currentSlide];
-  const currentMusicSrc = CONFIG.slideMusic?.[currentSlideData?.musicKey] ?? null;
+const currentMusicSrc =
+  WRAPPED_DATA.slideMusic?.[currentSlideData?.musicKey] ?? null;
 
   const handleNext = () => {
     if (!musicEnabled) {
@@ -220,7 +220,7 @@ export const WrappedExperience = () => {
         onClick={toggleMute}
         className="absolute top-8 right-4 z-[70] bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-md transition-all border border-white/10 shadow-lg"
       >
-        {!muted && musicEnabled ? (
+        {!muted ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
